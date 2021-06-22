@@ -31,6 +31,7 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
     </td>
     <td> </td>
   </tr>
+  
   <tr>
     <td align="center"> <image src="./Images/Dirk.jpeg" width="100px" height="80px"></image>  </td>
     <td align="center"> 
@@ -39,19 +40,104 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
     </td>
     <td align="center"> <image src="./Images/Dirk_Segmented.png" width="100px" height="80px"></image> </td>
   </tr>
-</table>
+  
+  <tr>
+    <td> </td>
+    <td align="center"> 
+      <b> Lab Members </b> 
+    </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  </td>
+    <td align="center"> 
+      <h3> Emani Hunter </h3> 
+      <p> Fall 2020 </p>
+    </td>
+    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image> </td>
+  </tr>
 
-- Dr. Dirk Colbry (Principle Investigator)
-- Emani Hunter, Fall 2020
-- Cameron Hurley, Fall 2019
-- Nate Britton, Fall 2020
-- Nick Grabill, Summer 2020
-- Kai Pinckard, Summer 2020
-- Alexander Eboru, Summer 2021
-- Davin Lin, Summer 2021
-- Diamaris González, Summer 2021
-- Emmaline Arter, Summer 2021
-- Raymond Lesiyon, Summer 2021
+  <tr>
+    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  </td>
+    <td align="center"> 
+      <h3> Cameron Hurley </h3> 
+      <p> Fall 2019 </p>
+    </td>
+    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image> </td>
+  </tr>
+  
+  <tr>
+    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  </td>
+    <td align="center"> 
+      <h3> Nate Britton </h3> 
+      <p> Fall 2020 </p>
+    </td>
+    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image> </td>
+  </tr>
+  
+  <tr>
+    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  </td>
+    <td align="center"> 
+      <h3> Nick Grabill </h3> 
+      <p> Summer 2020 </p>
+    </td>
+    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image> </td>
+  </tr>
+  
+  <tr>
+    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  </td>
+    <td align="center"> 
+      <h3> Kai Pinckard </h3> 
+      <p> Summer 2020 </p>
+    </td>
+    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image> </td>
+  </tr>
+  
+  <tr>
+    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  </td>
+    <td align="center"> 
+      <h3> Alexander Eboru </h3> 
+      <p> Summer 2021 </p>
+    </td>
+    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image> </td>
+  </tr>
+  
+  <tr>
+    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  </td>
+    <td align="center"> 
+      <h3> Davin Lin </h3> 
+      <p> Summer 2021 </p>
+    </td>
+    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image> </td>
+  </tr>
+  
+  <tr>
+    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  </td>
+    <td align="center"> 
+      <h3> Diamaris González </h3> 
+      <p> Summer 2021 </p>
+    </td>
+    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image> </td>
+  </tr>
+  
+  <tr>
+    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  </td>
+    <td align="center"> 
+      <h3> Emmaline Arter </h3> 
+      <p> Summer 2021 </p>
+    </td>
+    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image> </td>
+  </tr>
+  
+  <tr>
+    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  </td>
+    <td align="center"> 
+      <h3> Raymond Lesiyon </h3> 
+      <p> Summer 2021 </p>
+    </td>
+    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image> </td>
+  </tr>
+</table>
 
 ## SEE-InSight Emeritus Members
 - Katrina Gensterblum, Fall 2019
