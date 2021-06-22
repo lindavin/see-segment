@@ -22,6 +22,9 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
 * [Link to Github repository](https://github.com/see-insight/see-segment)
 
 ## SEE-InSight Members
+|                                                                     | Principal Investigator |                                                                               |
+|---------------------------------------------------------------------|------------------------|-------------------------------------------------------------------------------|
+| <image src="./Images/Dirk.jpeg" width="50px" height="50px"></image> | Dr. Dirk: PI           | <image src="./Images/Dirk_Segmented.jpeg" width="50px" height="50px"></image> |
 
 - Dr. Dirk Colbry (Principle Investigator)
 - Emani Hunter, Fall 2020
