@@ -22,9 +22,24 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
 * [Link to Github repository](https://github.com/see-insight/see-segment)
 
 ## SEE-InSight Members
-|                                                                     | Principal Investigator |                                                                               |
-|---------------------------------------------------------------------|------------------------|-------------------------------------------------------------------------------|
-| <image src="./Images/Dirk.jpeg" width="50px" height="50px"></image> | Dr. Dirk: PI           | <image src="./Images/Dirk_Segmented.png" width="50px" height="50px"></image>  |
+
+<table>
+  <tr>
+    <td> </td>
+    <td align="center"> 
+      <b> Principal Investigator </b> 
+    </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td align="center"> <image src="./Images/Dirk.jpeg" width="100px" height="80px"></image>  </td>
+    <td align="center"> 
+      <h3> Dr. Dirk Colbry</h3> 
+      <p> Director of Graduate Recruiting, Department of Computational Mathematics, Science and Engineering https://cmse.msu.edu/~/dirk-colbry/ </p>
+    </td>
+    <td align="center"> <image src="./Images/Dirk_Segmented.png" width="100px" height="80px"></image> </td>
+  </tr>
+</table>
 
 - Dr. Dirk Colbry (Principle Investigator)
 - Emani Hunter, Fall 2020
