@@ -103,12 +103,12 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
   </tr>
   
   <tr>
-    <td align="center"> <image src="Davin.jpeg" width="100px" height="80px"></image>  </td>
+    <td align="center"> <image src="Images/Davin.jpeg" width="80px" height="120px"></image>  </td>
     <td align="center"> 
       <h3> Davin Lin </h3> 
       <p> Summer 2021 </p>
     </td>
-    <td align="center"> <image src="Davin_Segmented.png" width="100px" height="80px"></image> </td>
+    <td align="center"> <image src="Images/Davin_Segmented.png" width="80px" height="120px"></image> </td>
   </tr>
   
   <tr>
