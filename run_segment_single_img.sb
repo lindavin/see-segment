@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH --time=3:00:00
+#SBATCH --mem=6gb
+
+
+module load conda
+conda activate ./envs
+
+python segment_image.py --pop-size=1 --num-gen=1 --filename=test_emma_${SLURM_JOB_ID}
+
+#python segment_image.py --pop-size=2 --num-gen=2 --filename=test_emma
+
+echo "FINNISHED RUNNING SCRIPT"
