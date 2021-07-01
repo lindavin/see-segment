@@ -22,6 +22,13 @@ parser.add_argument(
     help="population size of each generation to run genetic search (default: 20)",
 )
 
+parser.add_argument(
+    "--filename",
+    required=True,
+    type=str,
+    help="name of image file to save (i.e. test). File will be saved as png.",
+)
+
 #parser.add_argument(
 #       "--image-name",
 #       type=str,
@@ -60,10 +67,10 @@ mydata = base_classes.pipedata()
 mydata.img = data.img
 mydata.gmask = data.gmask
 
-my_evolver = GeneticSearch.Evolver(workflow, mydata, pop_size=5)
+my_evolver = GeneticSearch.Evolver(workflow, mydata, pop_size=args.pop_size)
 
 # warnings may appear when this runs
-population = my_evolver.run(ngen=1)
+population = my_evolver.run(ngen=args.num_gen)
 
 params = my_evolver.hof[0]
 
@@ -84,8 +91,9 @@ plt.title("Segmentation")
 plt.axis('off')
 
 plt.tight_layout
-plt.show()
+#plt.show()
 
-plt.savefig('test.png')
+print("fName: {}".format(args.filename))
+plt.savefig("{}.png".format(args.filename))
 
 print('Fitness Value: ', segment_fitness().evaluate(data.mask, data.gmask)[0])
