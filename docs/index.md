@@ -121,12 +121,12 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
   </tr>
   
   <tr>
-    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  </td>
+    <td align="center"> <image src="../Image_data/Examples/Emma.jpg" width="100px" height="80px"></image>  </td>
     <td align="center"> 
       <h3> Emmaline Arter </h3> 
       <p> Summer 2021 </p>
     </td>
-    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image> </td>
+    <td align="center"> <image src="./Images/Emma_segmented.png" width="100px" height="80px"></image> </td>
   </tr>
   
   <tr>
