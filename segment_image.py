@@ -1,12 +1,14 @@
+# This file was created to segment images using SEE-Segment and
+# save those images. It is essentially the Pipe example converted
+# to a script so that it can be run on the HPCC.
+
 import random
 import matplotlib.pylab as plt
 import imageio
 
-from see import JupyterGUI
-
 import argparse
 
-parser = argparse.ArgumentParser(description="Create some csv data files.")
+parser = argparse.ArgumentParser(description="Segment and save image segmantations.")
 
 parser.add_argument(
     "--num-gen",
