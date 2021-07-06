@@ -1,12 +1,23 @@
 #!/bin/bash
+#SBATCH --array=1-5
 #SBATCH --time=3:00:00
 #SBATCH --mem=6gb
-
 
 module load conda
 conda activate ./envs
 
-python segment_image.py --pop-size=1 --num-gen=1 --filename=test_emma_${SLURM_JOB_ID}
+echo "${SLURM_SUBMIT_DIR}"
+
+# Have X11 find an open display number and communicate the number
+# though a temporary file to set the environment variable.
+display_file=.tmp_display_${SLURM_JOB_ID}.txt
+Xvfb -displayfd 1 -auth /dev/null  1>$display_file 2> /dev/null &
+sleep 5
+export DISPLAY=:`cat $display_file`
+echo "DISPLAY set to $DISPLAY"
+rm $display_file
+
+python segment_image.py --pop-size=5 --num-gen=5 --filename=test_eboru_${SLURM_JOB_ID}
 
 #python segment_image.py --pop-size=2 --num-gen=2 --filename=test_emma
 

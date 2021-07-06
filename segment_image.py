@@ -39,6 +39,8 @@ args = parser.parse_args()
 
 import imageio
 from see.base_classes import pipedata
+#img = imageio.imread('Image_data/Examples/Emma.jpg')
+#gmask = imageio.imread('Image_data/Examples/Emma_GT.png')
 img = imageio.imread('Image_data/Examples/Eboru.png')
 gmask = imageio.imread('Image_data/Examples/Eboru_GT.png')
 data = pipedata()
