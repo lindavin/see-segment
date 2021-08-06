@@ -22,120 +22,188 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
 * [Link to Github repository](https://github.com/see-insight/see-segment)
 
 ## SEE-InSight Members
-
 <table>
-  <tr>
-    <td> </td>
-    <td align="center"> 
-      <b> Principal Investigator </b> 
+  <tr text-align="left">
+	<!--- Section --->
+	<th nowrap> Principal Investigator </th>
+  </tr>
+  <tr align="center">
+    <td> 
+		<image src="./Images/Dirk.jpeg" width="100px" height="80px"></image>  
+	</td>
+    <td> 
+		<image src="./Images/Dirk.jpeg" width="100px" height="80px"></image>  
+	</td>
+    <td> 
+		<image src="./Images/Dirk_Segmented.png" width="100px" height="80px"></image> 
+	</td>
+    <td> 
+		<h3> Dr. Dirk Colbry</h3> 
+		<p> Director of Graduate Recruiting, Department of Computational Mathematics, Science and Engineering https://cmse.msu.edu/~/dirk-colbry/ </p>
     </td>
-    <td> </td>
   </tr>
   
-  <tr>
-    <td align="center"> <image src="./Images/Dirk.jpeg" width="100px" height="80px"></image>  </td>
-    <td align="center"> 
-      <h3> Dr. Dirk Colbry</h3> 
-      <p> Director of Graduate Recruiting, Department of Computational Mathematics, Science and Engineering https://cmse.msu.edu/~/dirk-colbry/ </p>
-    </td>
-    <td align="center"> <image src="./Images/Dirk_Segmented.png" width="100px" height="80px"></image> </td>
+  <tr text-align="left">
+	<!--- Section --->
+	<th text-align="left" nowrap> Lab Members </th>
   </tr>
   
-  <tr>
-    <td> </td>
-    <td align="center"> 
-      <b> Lab Members </b> 
+  <tr align="center">
+    <td> 
+		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  
+	</td>
+    <td> 
+		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  
+	</td>
+    <td> 
+		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image> 
+	</td>
+    <td> 
+		<h3> Emani Hunter </h3> 
+		<p> Fall 2020 </p>
     </td>
-    <td> </td>
-  </tr>
-  <tr>
-    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  </td>
-    <td align="center"> 
-      <h3> Emani Hunter </h3> 
-      <p> Fall 2020 </p>
-    </td>
-    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image> </td>
   </tr>
 
-  <tr>
-    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  </td>
-    <td align="center"> 
-      <h3> Cameron Hurley </h3> 
-      <p> Fall 2019 </p>
+  <tr align="center">
+    <td> 
+		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  
+	</td>
+    <td> 
+		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  
+	</td>
+    <td> 
+		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image> 
+	</td>
+    <td> 
+		<h3> Cameron Hurley </h3> 
+		<p> Fall 2019 </p>
     </td>
-    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image> </td>
   </tr>
   
-  <tr>
-    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  </td>
-    <td align="center"> 
-      <h3> Nate Britton </h3> 
-      <p> Fall 2020 </p>
+  <tr align="center">
+    <td> 
+		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  
+	</td>
+    <td> 
+		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  
+	</td>
+    <td> 
+		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image> 
+	</td>
+    <td> 
+		<h3> Nate Britton </h3> 
+		<p> Fall 2020 </p>
     </td>
-    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image> </td>
   </tr>
   
-  <tr>
-    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  </td>
-    <td align="center"> 
-      <h3> Nick Grabill </h3> 
-      <p> Summer 2020 </p>
+  <tr align="center">
+    <td> 
+		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  
+	</td>
+    <td> 
+		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  
+	</td>
+    <td> 
+		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image> 
+	</td>
+    <td> 
+		<h3> Nick Grabill </h3> 
+		<p> Summer 2020 </p>
     </td>
-    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image> </td>
   </tr>
   
-  <tr>
-    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  </td>
-    <td align="center"> 
-      <h3> Kai Pinckard </h3> 
-      <p> Summer 2020 </p>
+  <tr align="center">
+    <td> 
+		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  
+	</td>
+    <td> 
+		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  
+	</td>
+    <td> 
+		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image> 
+	</td>
+    <td> 
+		<h3> Kai Pinckard </h3> 
+		<p> Summer 2020 </p>
     </td>
-    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image> </td>
   </tr>
   
-  <tr>
-    <td align="center"> <image src="../Image_data/Examples/Eboru.png" width="100px" height="80px"></image>  </td>
-    <td align="center"> 
-      <h3> Alexander Eboru </h3> 
-      <p> Summer 2021 </p>
+  <tr align="center">
+	<td> 
+		<image src="../Image_data/Examples/Eboru.png" width="100px" height="80px"></image>  
+	</td>
+	<td> 
+		<image src="../Image_data/Examples/Eboru.png" width="100px" height="80px"></image>  
+	</td>
+    <td> 
+		<image src="Images/Eboru_segmented.png" width="100px" height="80px"></image> 
+	</td>
+	<td> 
+		<h3> Alexander Eboru </h3> 
+		<p> Summer 2021 </p>
     </td>
-    <td align="center"> <image src="Images/Eboru_segmented.png" width="100px" height="80px"></image> </td>
   </tr>
   
-  <tr>
-    <td align="center"> <image src="Images/Davin.jpeg" width="80px" height="120px"></image>  </td>
-    <td align="center"> 
+  <tr align="center">
+    <td> 
+		<image src="Images/Davin.jpeg" width="80px" height="120px"></image>  
+	</td>
+    <td> 
+		<image src="Images/Davin.jpeg" width="80px" height="120px"></image>  
+	</td>
+    <td> <image src="Images/Davin_Segmented.png" width="80px" height="120px"></image> </td>
+    <td> 
       <h3> Davin Lin </h3> 
       <p> Summer 2021 </p>
     </td>
-    <td align="center"> <image src="Images/Davin_Segmented.png" width="80px" height="120px"></image> </td>
   </tr>
   
-  <tr>
-    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  </td>
-    <td align="center"> 
+  <tr align="center">
+    <td> 
+		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  
+	</td>
+    <td> 
+		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  
+	</td>
+    <td> 
+		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image> 
+	</td>
+    <td> 
       <h3> Diamaris González </h3> 
       <p> Summer 2021 </p>
     </td>
-    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image> </td>
   </tr>
   
-  <tr>
-    <td align="center"> <image src="../Image_data/Examples/Emma.jpg" width="100px" height="80px"></image>  </td>
-    <td align="center"> 
+  <tr align="center">
+    <td> 
+		<image src="../Image_data/Examples/Emma.jpg" width="100px" height="80px"></image>  
+	</td>
+    <td> 
+		<image src="../Image_data/Examples/Emma.jpg" width="100px" height="80px"></image>  
+	</td>
+    <td> 
+		<image src="./Images/Emma_segmented.png" width="100px" height="80px"></image> 
+	</td>
+    <td> 
       <h3> Emmaline Arter </h3> 
       <p> Summer 2021 </p>
     </td>
-    <td align="center"> <image src="./Images/Emma_segmented.png" width="100px" height="80px"></image> </td>
   </tr>
   
-  <tr>
-    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  </td>
-    <td align="center"> 
+  <tr align="center">
+    <td> 
+		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  
+	</td>
+    <td> 
+		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  
+	</td>
+    <td> 
+		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image> 
+	</td>
+    <td> 
       <h3> Raymond Lesiyon </h3> 
       <p> Summer 2021 </p>
     </td>
-    <td align="center"> <image src="SEE-Segment_logo.png" width="100px" height="80px"></image> </td>
   </tr>
 </table>
 
