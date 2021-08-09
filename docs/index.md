@@ -22,7 +22,7 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
 * [Link to Github repository](https://github.com/see-insight/see-segment)
 
 ## SEE-InSight Members
-<table>
+<table style="table-layout:fixed">
   <tr text-align="left">
 	<!--- Section --->
 	<th nowrap> Principal Investigator </th>
@@ -39,7 +39,6 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
 	</td>
     <td> 
 		<h3> Dr. Dirk Colbry</h3> 
-		<p> Director of Graduate Recruiting, Department of Computational Mathematics, Science and Engineering https://cmse.msu.edu/~/dirk-colbry/ </p>
     </td>
   </tr>
   
