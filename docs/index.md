@@ -22,8 +22,17 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
 * [Link to Github repository](https://github.com/see-insight/see-segment)
 
 ## SEE-InSight Members
+<style>
+	.section {
+		text-align: left
+	}
+	
+	table tr td {
+		vertical-align: top
+	}
+</style>
 <table style="table-layout:fixed">
-  <tr>
+  <tr class='section'>
 	<!--- Section --->
 	<th nowrap> Principal Investigator </th>
   </tr>
@@ -38,13 +47,13 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
 		<image src="./Images/member_images/segmentations/Dirk_Segmented.png" width="100px" height="80px"></image> 
 	</td>
     <td> 
-		<h3> Dr. Dirk Colbry</h3> 
+		<h3> Dr. Dirk Colbry </h3> 
     </td>
   </tr>
   
-  <tr>
+  <tr class='section'>
 	<!--- Section --->
-	<th nowrap> Lab Lab Lab Members </th>
+	<th nowrap> Lab Members </th>
   </tr>
   
   <tr>
