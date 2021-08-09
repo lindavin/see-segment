@@ -23,11 +23,11 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
 
 ## SEE-InSight Members
 <table style="table-layout:fixed">
-  <tr text-align="left">
+  <tr>
 	<!--- Section --->
 	<th nowrap> Principal Investigator </th>
   </tr>
-  <tr align="center">
+  <tr>
     <td> 
 		<image src="./Images/member_images/originals/Dirk.jpeg" width="100px" height="80px"></image>  
 	</td>
@@ -42,12 +42,12 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
     </td>
   </tr>
   
-  <tr text-align="left">
+  <tr>
 	<!--- Section --->
-	<th text-align="left" nowrap> Lab Members </th>
+	<th nowrap> Lab Lab Lab Members </th>
   </tr>
   
-  <tr align="center">
+  <tr>
     <td> 
 		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  
 	</td>
@@ -63,7 +63,7 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
     </td>
   </tr>
 
-  <tr align="center">
+  <tr>
     <td> 
 		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  
 	</td>
@@ -79,7 +79,7 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
     </td>
   </tr>
   
-  <tr align="center">
+  <tr>
     <td> 
 		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  
 	</td>
@@ -95,7 +95,7 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
     </td>
   </tr>
   
-  <tr align="center">
+  <tr>
     <td> 
 		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  
 	</td>
@@ -111,7 +111,7 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
     </td>
   </tr>
   
-  <tr align="center">
+  <tr>
     <td> 
 		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  
 	</td>
@@ -127,7 +127,7 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
     </td>
   </tr>
   
-  <tr align="center">
+  <tr>
 	<td> 
 		<image src="./Images/member_images/originals/Eboru.png" width="100px" height="80px"></image>  
 	</td>
@@ -143,7 +143,7 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
     </td>
   </tr>
   
-  <tr align="center">
+  <tr>
     <td> 
 		<image src="./Images/member_images/originals/Davin.jpeg" width="80px" height="120px"></image>  
 	</td>
@@ -157,7 +157,7 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
     </td>
   </tr>
   
-  <tr align="center">
+  <tr>
     <td> 
 		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  
 	</td>
@@ -173,7 +173,7 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
     </td>
   </tr>
   
-  <tr align="center">
+  <tr>
     <td> 
 		<image src="./Images/member_images/originals/Emma.jpg" width="100px" height="80px"></image>  
 	</td>
@@ -189,7 +189,7 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
     </td>
   </tr>
   
-  <tr align="center">
+  <tr>
     <td> 
 		<image src="SEE-Segment_logo.png" width="100px" height="80px"></image>  
 	</td>
