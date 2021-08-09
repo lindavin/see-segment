@@ -138,13 +138,13 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
   
   <tr>
 	<td> 
-		<image src="./Images/member_images/originals/Eboru.png" width="100px" height="80px"></image>  
+		<image src="./Images/member_images/originals/Eboru.png" width="80px" height="80px"></image>  
 	</td>
 	<td> 
-		<image src="./Images/member_images/ground_truths/Eboru_GT.png" width="100px" height="80px"></image>  
+		<image src="./Images/member_images/ground_truths/Eboru_GT.png" width="80px" height="80px"></image>  
 	</td>
     <td> 
-		<image src="./Images/member_images/segmentations/Eboru_segmented.png" width="100px" height="80px"></image> 
+		<image src="./Images/member_images/segmentations/Eboru_segmented.png" width="80px" height="80px"></image> 
 	</td>
 	<td> 
 		<h3> Alexander Eboru </h3> 
