@@ -29,13 +29,13 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
   </tr>
   <tr align="center">
     <td> 
-		<image src="./Images/Dirk.jpeg" width="100px" height="80px"></image>  
+		<image src="./Images/member_images/originals/Dirk.jpeg" width="100px" height="80px"></image>  
 	</td>
     <td> 
-		<image src="./Images/Dirk.jpeg" width="100px" height="80px"></image>  
+		<image src="./Images/member_images/ground_truths/dirk_GT.png" width="100px" height="80px"></image>  
 	</td>
     <td> 
-		<image src="./Images/Dirk_Segmented.png" width="100px" height="80px"></image> 
+		<image src="./Images/member_images/segmentations/Dirk_Segmented.png" width="100px" height="80px"></image> 
 	</td>
     <td> 
 		<h3> Dr. Dirk Colbry</h3> 
@@ -130,13 +130,13 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
   
   <tr align="center">
 	<td> 
-		<image src="../Image_data/Examples/Eboru.png" width="100px" height="80px"></image>  
+		<image src="./Images/member_images/originals/Eboru.png" width="100px" height="80px"></image>  
 	</td>
 	<td> 
-		<image src="../Image_data/Examples/Eboru.png" width="100px" height="80px"></image>  
+		<image src="./Images/member_images/ground_truths/Eboru_GT.png" width="100px" height="80px"></image>  
 	</td>
     <td> 
-		<image src="Images/Eboru_segmented.png" width="100px" height="80px"></image> 
+		<image src="./Images/member_images/segmentations/Eboru_segmented.png" width="100px" height="80px"></image> 
 	</td>
 	<td> 
 		<h3> Alexander Eboru </h3> 
@@ -146,12 +146,12 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
   
   <tr align="center">
     <td> 
-		<image src="Images/Davin.jpeg" width="80px" height="120px"></image>  
+		<image src="./Images/member_images/originals/Davin.jpeg" width="80px" height="120px"></image>  
 	</td>
     <td> 
-		<image src="Images/Davin.jpeg" width="80px" height="120px"></image>  
+		<image src="./Images/member_images/ground_truths/Davin_GT.png" width="80px" height="120px"></image>  
 	</td>
-    <td> <image src="Images/Davin_Segmented.png" width="80px" height="120px"></image> </td>
+    <td> <image src="./Images/member_images/segmentations/Davin_Segmented.png" width="80px" height="120px"></image> </td>
     <td> 
       <h3> Davin Lin </h3> 
       <p> Summer 2021 </p>
@@ -176,13 +176,13 @@ Watch an introductory video to what SEE is, and how to use it [here](https://med
   
   <tr align="center">
     <td> 
-		<image src="../Image_data/Examples/Emma.jpg" width="100px" height="80px"></image>  
+		<image src="./Images/member_images/originals/Emma.jpg" width="100px" height="80px"></image>  
 	</td>
     <td> 
-		<image src="../Image_data/Examples/Emma.jpg" width="100px" height="80px"></image>  
+		<image src="./Images/member_images/ground_truths/Emma_GT.png" width="100px" height="80px"></image>  
 	</td>
     <td> 
-		<image src="./Images/Emma_segmented.png" width="100px" height="80px"></image> 
+		<image src="./Images/member_images/segmentations/Emma_segmented.png" width="100px" height="80px"></image> 
 	</td>
     <td> 
       <h3> Emmaline Arter </h3> 
