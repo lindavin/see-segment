@@ -2,7 +2,7 @@
 
 import numpy as np
 import pandas as pd
-from sklearn.datasets import make_moons, make_circles, make_classification
+from sklearn.datasets import make_moons, make_circles, make_classification, fetch_openml
 from sklearn.preprocessing import label_binarize, StandardScaler
 
 
@@ -86,3 +86,67 @@ def generate_tutorial_data():
         datasets[name] = (X, y)
 
     return datasets
+
+def fetch_numerai286_data():
+    """Fetches numerai28.6 dataset from OpemML
+
+    Returns
+    -------
+    X : array-like of shape (n_samples, n_features)
+        The data to fit or predict on where n_samples=569 and n_features=30.
+
+    y : array-like of shape (n_samples,)
+        The target label to predict. Labels are binary
+        where 1 is Malignant and 0 is Benign
+
+    Notes
+    -----
+    This function relies on the data found at this url:
+    "https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.data"
+    Data (X) is not preprocessed.
+
+    """
+
+    ds = fetch_openml(data_id=23517)
+
+    X = ds.data.to_numpy()
+
+    y = ds.target.to_numpy()
+    y = label_binarize(y=y, classes=["0", "1"]).ravel()
+    print(X)
+    print(y)
+    print(ds.DESCR)
+    return X, y
+
+def fetch_miniboone_data():
+    """Fetches MiniBoone dataset from OpemML
+
+    Returns
+    -------
+    X : array-like of shape (n_samples, n_features)
+        The data to fit or predict on where n_samples=569 and n_features=30.
+
+    y : array-like of shape (n_samples,)
+        The target label to predict. Labels are binary
+        where 1 is Malignant and 0 is Benign
+
+    Notes
+    -----
+    This function relies on the data found at this url:
+    "https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.data"
+    Data (X) is not preprocessed.
+
+    """
+
+    ds = fetch_openml(data_id=41150)
+
+    X = ds.data.to_numpy()
+
+    y = ds.target.to_numpy()
+    y = label_binarize(y=y, classes=["True", "False"]).ravel()
+    print(X)
+    print(y)
+    print(ds.DESCR)
+    return X, y
+
+fetch_miniboone_data()
