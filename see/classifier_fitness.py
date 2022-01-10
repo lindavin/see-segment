@@ -2,7 +2,7 @@ import numpy as np
 
 from see.base_classes import algorithm
 from sklearn.model_selection import cross_val_score
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import get_scorer
 
 
 class ClassifierFitness(algorithm):
@@ -11,50 +11,29 @@ class ClassifierFitness(algorithm):
 
     Attributes
     ----------
-    metric : string
-        The metric to be used to test the classifier.
+    metric : string, default='accuracy'
+        The metric to be used to test the classifier. 
+        For a list of metrics, check out https://scikit-learn.org/stable/modules/model_evaluation.html.
+        Examples include accuracy, balanced_accuracy, f1, roc_auc, etc...
 
     Methods
     -------
     evaluate(predictions, targets)
-        Returns the error/fitness rate of predictions.
-
-    pipe_evaluate(data)
-        Calls the evaluate method within the context of the
-        pipeline.
+        Returns the error rate (i.e fitness) of the classifier according to the chosen metric.
 
     pipe(data)
         Evaluates the classifier on the dataset as the final stage
         of the classifier pipeline.
     """
 
-    def __init__(self, paramlist=None, metric="simple"):
+    def __init__(self, paramlist=None, metric="accuracy"):
         """Generate algorithm params from parameter list."""
         super(ClassifierFitness, self).__init__(paramlist)
         self.metric = metric
 
-    def evaluate(self, predictions, targets):
+    def evaluate(self, data):
         """
         Returns the error rate/fitness score of predictions.
-
-        Parameters
-        ----------
-        predictions : array-like of shape (n_samples,)
-            The predicted labels of each item.
-
-        targets : array-like of shape (n_samples,)
-            The target labels to predict.
-
-        Returns
-        -------
-        The error/fitness rate of predictions.
-        """
-
-        return 1 - accuracy_score(targets, predictions)
-
-    def pipe_evaluate(self, data):
-        """
-        Determines the fitness value of the attached classifier.
 
         Parameters
         ----------
@@ -80,9 +59,9 @@ class ClassifierFitness(algorithm):
 
         clf.fit(data.training_set.X, data.training_set.y)
 
-        predictions = clf.predict(data.testing_set.X)
+        scorer = get_scorer(self.metric)
 
-        return self.evaluate(predictions, data.testing_set.y)
+        return 1 - scorer(clf, data.testing_set.X, data.testing_set.y)
 
     def pipe(self, data):
         """
@@ -105,14 +84,25 @@ class ClassifierFitness(algorithm):
         """
 
         if data.clf is None:
-            print(
+            raise Exception(
                 "ERROR: classifier cannot be None. This must be set prior in the pipeline"
             )
 
-        data.fitness = self.pipe_evaluate(data)
+        data.fitness = self.evaluate(data)
 
         return data
 
+class F1Score(ClassifierFitness):
+    def __init__(self, paramlist=None):
+        super(F1Score, self).__init__(paramlist=paramlist, metric='f1')
+        
+class ROC_AUC(ClassifierFitness):
+    def __init__(self, paramlist=None):
+        super(ROC_AUC, self).__init__(paramlist=paramlist, metric='roc_auc')
+
+class BalancedAccuracy(ClassifierFitness):
+    def __init__(self, paramlist=None):
+        super(BalancedAccuracy, self).__init__(paramlist=paramlist, metric='balanced_accuracy')
 
 class CVFitness(ClassifierFitness):
     """Uses the Stratified Cross-Validaiton scheme to measure
@@ -120,7 +110,7 @@ class CVFitness(ClassifierFitness):
 
     Attributes
     ----------
-    cv : int
+    cv : int, default=class.cv; read about more this in the Notes section.
         The number of folds to split the dataset.
 
     Methods
@@ -134,23 +124,24 @@ class CVFitness(ClassifierFitness):
 
     Notes
     -----
-    When this is used during the classifier pipeline (i.e. as the 
-    last item of a Workflow), the class attribute cv will be
-    used to initialize this fitness instance by default. The
-    default cv class attribute is 5. To change this use
+    The default cv class attribute is 10. To change this use
     the class method CVFitness#set_cv(cv).
+    
+    When this class is used during the classifier pipeline (i.e. as the 
+    last item of a Workflow), the class attribute cv will be
+    used to initialize this fitness instance.
     """
 
-    cv = 5
+    cv = 10
 
-    def __init__(self, paramlist=None, cv=None):
-        super(CVFitness, self).__init__(paramlist=paramlist, metric="CV")
+    def __init__(self, paramlist=None, cv=None, metric='accuracy'):
+        super(CVFitness, self).__init__(paramlist=paramlist, metric=metric)
         if cv is None:
             self.cv = CVFitness.cv
         else:
             self.cv = cv
 
-    def pipe_evaluate(self, data):
+    def evaluate(self, data):
         """
         Determines the fitness value of the attached classifier.
 
@@ -168,12 +159,11 @@ class CVFitness(ClassifierFitness):
         if len(data.training_set.X) <= 0:
             raise ValueError("Training set must have at least one item")
 
-        cv_fitness = cross_val_score(
-            data.clf, data.training_set.X, data.training_set.y, cv=self.cv
-        ).mean()
-        cv_fitness = 1 - cv_fitness
-        print("cv_fitness: ", cv_fitness)
-        print("type cv_fitness: ", type(cv_fitness))
+        scores = cross_val_score(
+            data.clf, data.training_set.X, data.training_set.y, cv=self.cv, scoring=self.metric
+        )
+        data.scores = scores
+        cv_fitness = 1 - scores.mean()
         return cv_fitness
 
     @classmethod

@@ -125,9 +125,9 @@ def generate_pipeline_dataset(X, y):
     return dataset
 
 
-def generate_train_test_set(X, y, random_state=42, test_size=0.4):
+def generate_train_test_set(X, y, random_state=42, test_size=0.4, **kwargs):
     """
-    Split data into training and testing sets
+    Wrapper function for GA pipeline; splits data into training and testing sets
 
     Parameters
     ----------
@@ -160,7 +160,7 @@ def generate_train_test_set(X, y, random_state=42, test_size=0.4):
     # Split data into training and testing sets
 
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=test_size, random_state=random_state
+        X, y, test_size=test_size, random_state=random_state, **kwargs
     )
 
     training_set = ClassifyDataset(X_train, y_train)
