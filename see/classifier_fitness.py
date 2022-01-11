@@ -133,9 +133,13 @@ class CVFitness(ClassifierFitness):
     """
 
     cv = 10
+    metric = 'accuracy'
 
-    def __init__(self, paramlist=None, cv=None, metric='accuracy'):
-        super(CVFitness, self).__init__(paramlist=paramlist, metric=metric)
+    def __init__(self, paramlist=None, cv=None, metric=None):
+        if metric is None:
+            super(CVFitness, self).__init__(paramlist=paramlist, metric=CVFitness.metric)
+        else:
+            super(CVFitness, self).__init__(paramlist=paramlist, metric=metric)
         if cv is None:
             self.cv = CVFitness.cv
         else:
@@ -191,3 +195,28 @@ class CVFitness(ClassifierFitness):
             raise ValueError("cv must be an int")
 
         clf.cv = cv
+
+    @classmethod
+    def set_metric(clf, metric):
+        """
+        Class method that sets the metric class attribute.
+
+        Parameters
+        ----------
+        metric: string
+
+        Side Effects
+        ------------
+        Sets the class attribute metric. This should be done only once at the beginning.
+        Instances of this class will use the class metric attribute to determine the
+        scoring metric in cross validation.
+
+        Returns
+        -------
+        None
+        """
+
+        if type(metric) != str:
+            raise ValueError("metric must be an str")
+
+        clf.metric = metric

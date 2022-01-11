@@ -148,5 +148,3 @@ def fetch_miniboone_data():
     print(y)
     print(ds.DESCR)
     return X, y
-
-fetch_miniboone_data()
