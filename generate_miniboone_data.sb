@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --array=0
 #SBATCH --time=30:30:00
-#SBATCH --mem=4gb
+#SBATCH --mem=20gb
 
 # Load module and initalize environment
 module load conda
@@ -37,7 +37,7 @@ echo "Running GA for ${num_trials} trials"
 # Run script
 ds_name="miniboone"
 echo "Running ${ds_name} dataset"
-python run_see_classify_miniboone.py --pop-size=${pop_size} --num-gen=${num_gen} --num-trials=${num_trials}
+python run_see_classify_miniboone.py --pop-size=${pop_size} --num-gen=${num_gen} --num-trials=${num_trials} --cross-val
 # quick change to not redirect to file
 # python run_see_classify_dhahri.py --pop-size=${pop_size} --num-gen=${num_gen} --num-trials=${num_trials} > $SLURM_JOB_ID.txt
 

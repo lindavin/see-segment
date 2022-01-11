@@ -14,6 +14,7 @@ Number of Trials (--num-trials) = 100
 import argparse
 import numpy as np
 import pandas as pd
+import random
 from sklearn.preprocessing import StandardScaler
 from see import GeneticSearch
 from see.base_classes import pipedata
@@ -23,7 +24,7 @@ from see.classifier_helpers import helpers
 from see.classifier_helpers.fetch_data import fetch_numerai286_data
 from see.Workflow import workflow
 
-parser = argparse.ArgumentParser(description="Create some csv data files.")
+parser = argparse.ArgumentParser(description="Create csv data files. Cross-validation is not used by default.")
 
 parser.add_argument(
     "--num-gen",
@@ -47,12 +48,28 @@ parser.add_argument(
 )
 
 parser.add_argument(
-    "--fitness-func",
+    "--fitness-func", "--metric",
     default='simple',
-    choices=['simple', 'cv10'],
+    choices=['simple', 'accuracy', 'f1', 'balanced_accuracy', 'roc_auc'],
     type=str,
-    help="the fitness function for the GA (default: simple). This can be either simple or cv10.",
+    help="the metric for fitness function for the GA (default: simple). This can be either simple or cv10.",
 )
+
+parser.add_argument(
+    "--cross-val",
+    dest="cross_val",
+    action="store_true",
+    help="set pipeline to USE cross validation",
+)
+
+parser.add_argument(
+    "--no-cross-val",
+    dest="cross_val",
+    action="store_false",
+    help="set pipeline to NOT USE cross validation",
+)
+
+parser.set_defaults(cross_val=False)
 
 args = parser.parse_args()
 
@@ -64,33 +81,42 @@ X, y = fetch_numerai286_data()
 X = StandardScaler().fit_transform(X)
 
 
-random_state = 42
-print("Size of dataset: {}".format(len(X)))
+random.seed()
+
+#random_state = 42
+random_state = int(random.random()*1000)
+print("# RANDOM STATE: {}".format(random_state))
+
+print("# Size of dataset: {}".format(len(X)))
 print(f'Data split random_state = {random_state}')
 
 # Split data into training, testing, and validation sets 
-# A train-test-validation split of 60-20-20
+# A train-test-validation split of 75-25
 
-temp = helpers.generate_train_test_set(X, y, test_size=0.2, random_state=random_state)
+temp = helpers.generate_train_test_set(X, y, test_size=0.25, random_state=random_state)
 validation_set = temp.testing_set
-print("Size of validation set: {}".format(len(validation_set.X)))
+print("# Size of validation set: {}".format(len(validation_set.X)))
 
 if args.fitness_func == 'simple':
+    # Update fitness metric to new system
+    args.fitness_func = 'accuracy'
+
+if args.cross_val:
+    pipeline_dataset = temp # training data is used in pipeline
+    CVFitness.set_cv(10)
+    CVFitness.set_metric(args.fitness_func)
+    fitness_func = CVFitness
+    print("# USING Cross Validation")
+    print("# Size of training data: {}".format(len(pipeline_dataset.training_set.X)))
+    print("# Fitness Function: {}".format(args.fitness_func))
+else:
+    # split training data into training and testing sets
     pipeline_dataset = helpers.generate_train_test_set(temp.training_set.X, temp.training_set.y, test_size=0.25, random_state=random_state)
     fitness_func = ClassifierFitness
-    print("Size of training set: {}".format(len(pipeline_dataset.training_set.X)))
-    print("Size of testing set: {}".format(len(pipeline_dataset.testing_set.X)))
-    print("Fitness Function: Simple Accuracy")
-elif args.fitness_func == 'cv10':
-    pipeline_dataset = temp
-    CVFitness.set_cv(10)
-    fitness_func = CVFitness
-    print("Size of GA set: {}".format(len(pipeline_dataset.training_set.X)))
-    print("Fitness Function: KFOLDS")
-else:
-    # We do not expect to reach this case
-    # This should be handled by arg-parser.
-    print("Unexpected case for fitness function")
+    print("# NOT USING Cross Validation")
+    print("# Size of training set: {}".format(len(pipeline_dataset.training_set.X)))
+    print("# Size of testing set: {}".format(len(pipeline_dataset.testing_set.X)))
+    print("# Fitness Function: {}".format(args.fitness_func))
 
 print("\n")
 
@@ -100,7 +126,7 @@ print("\n")
 
 # Check algorithm space
 algorithm_space = Classifier.algorithmspace
-print("Algorithm Space: ")
+print("# Algorithm Space: ")
 print(list(algorithm_space.keys()))
 print("\n")
 
@@ -111,9 +137,8 @@ NUM_GENERATIONS = args.num_gen
 NUM_TRIALS = args.num_trials
 POP_SIZE = args.pop_size
 
-# TODO...use cross-validation...because the paper uses cross-validation...
-print("Running {} Dataset".format("Dhahri 2019"))
-print("GA running for {} generations with population size of {}".format(NUM_GENERATIONS, POP_SIZE))
+print("# Running {} Dataset".format("numerai28.6"))
+print("# GA running for {} generations with population size of {}".format(NUM_GENERATIONS, POP_SIZE))
 
 for i in range(NUM_TRIALS):
     print("Running trial number {}".format(i))
