@@ -143,7 +143,7 @@ def fetch_miniboone_data():
     X = ds.data.to_numpy()
 
     y = ds.target.to_numpy()
-    y = label_binarize(y=y, classes=["True", "False"]).ravel()
+    y = label_binarize(y=y, classes=["False", "True"]).ravel()
     print(X)
     print(y)
     print(ds.DESCR)

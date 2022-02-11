@@ -321,6 +321,7 @@ class Classifier(algorithm):
     """
 
     algorithmspace = dict()
+    use_standard_scaler = True;
 
     def __init__(self, paramlist=None, paramindexes=[]):
         """Generate algorithm params from parameter list."""
@@ -331,7 +332,25 @@ class Classifier(algorithm):
 
         self.paramindexes = paramindexes
         self.set_params(paramlist)
+        self.paramlist = paramlist
+        self.use_standard_scaler = Classifier.use_standard_scaler
 
+    def create_clf(self):
+        """
+        Creates a classifier object with specified hyperparameters.
+
+        Returns
+        -------
+        clf : Classifier Object
+            A classifier object with specified hyperparameters.
+        """
+
+        #clf = self.clf_class()
+        #param_dict = self.map_param_space_to_hyper_params()
+        #clf.set_params(**param_dict)
+        return Classifier.algorithmspace[self.paramlist[0]](paramlist=self.paramlist).create_clf()
+        #return clf
+    
     def evaluate(self, training_set, testing_set):
         """Instance evaluate method. Needs to be overridden by subclasses."""
         self.thisalgo = Classifier.algorithmspace[self.params["algorithm"]](self.params)
@@ -535,7 +554,15 @@ class ClassifierContainer(Classifier, ABC):
         clf = self.clf_class()
         param_dict = self.map_param_space_to_hyper_params()
         clf.set_params(**param_dict)
-        return clf
+
+        # use_standard_scaler inheritted from Classifier
+        if(self.use_standard_scaler):
+            from sklearn.pipeline import make_pipeline 
+            from sklearn import preprocessing
+            print("Building pipeline with standard scaler...")
+            return make_pipeline(preprocessing.StandardScaler(), clf)
+        else:
+            return clf
 
     def fit_predict(self, training_set, testing_set):
         """
@@ -591,7 +618,7 @@ class ClassifierContainer(Classifier, ABC):
 
         return self.fit_predict(training_set, testing_set)
 
-    @abstractmethod
+    #@abstractmethod
     def map_param_space_to_hyper_params(self):
         """
         Abstract method. Maps the container's parameter space
@@ -603,6 +630,7 @@ class ClassifierContainer(Classifier, ABC):
         Dictionary of parameters that can be used as the
         hyperparameters of self.clf_class.
         """
+        print("## WARNING NEED TO IMPLEMENT")
         pass
 
 
@@ -898,10 +926,10 @@ class SVCContainer(ClassifierContainer):
         param_dict["kernel"] = self.params["kernel"]
         param_dict["C"] = self.params["C"]
         param_dict["gamma"] = self.params["gamma"]
-        if param_dict["kernel"] == "poly":
+        if param_dict["kernel"] == "poly" or param_dict["kernel"] == "linear":
             # The poly kernel can take a very long time to run.
             # A max iteration will help force it to terminate.
-            param_dict["max_iter"] = self.params["max_iter"] * 1e5
+            param_dict["max_iter"] = self.params["max_iter"]
 
         return param_dict
 
