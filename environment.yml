@@ -1,5 +1,6 @@
 channels:
   - defaults
+  - conda-forge
 dependencies:
   - pip
   - autopep8
@@ -12,8 +13,17 @@ dependencies:
   - pandas
   - scikit-image
   - scikit-learn
+  - scipy
+  - pandas
+  - joblib
+  - pytorch
   - pip:
     - argparse
     - deap
     - opencv-python
     - scoop
+    - update_checker
+    - tqdm
+    - stopit
+    - xgboost
+    - tpot
