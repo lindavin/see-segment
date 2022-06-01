@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-"""This file is part of the TPOT library.
+"""This file is part of the TPOT library. (This file has been 
+modified to work with the SEE library.)
 
 TPOT was primarily developed at the University of Pennsylvania by:
     - Randal S. Olson (rso@randalolson.com)
@@ -59,30 +60,33 @@ from joblib import Parallel, delayed, Memory
 
 from update_checker import update_check
 
-from ._version import __version__
+from .tpot_version import __version__
+
+# from tpot.operator_utils import TPOTOperatorClassFactory, Operator, ARGType
 from .operator_utils import TPOTOperatorClassFactory, Operator, ARGType
-from .export_utils import (
+
+from tpot.export_utils import (
     export_pipeline,
     expr_to_tree,
     generate_pipeline_code,
     set_param_recursive,
 )
-from .decorators import _pre_test
-from .builtins import CombineDFs, StackingEstimator
+from tpot.decorators import _pre_test
+from tpot.builtins import CombineDFs, StackingEstimator
 
-from .config.classifier_light import classifier_config_dict_light
-from .config.regressor_light import regressor_config_dict_light
-from .config.classifier_mdr import tpot_mdr_classifier_config_dict
-from .config.regressor_mdr import tpot_mdr_regressor_config_dict
-from .config.regressor_sparse import regressor_config_sparse
-from .config.classifier_sparse import classifier_config_sparse
-from .config.classifier_nn import classifier_config_nn
-from .config.classifier_cuml import classifier_config_cuml
-from .config.regressor_cuml import regressor_config_cuml
+from tpot.config.classifier_light import classifier_config_dict_light
+from tpot.config.regressor_light import regressor_config_dict_light
+from tpot.config.classifier_mdr import tpot_mdr_classifier_config_dict
+from tpot.config.regressor_mdr import tpot_mdr_regressor_config_dict
+from tpot.config.regressor_sparse import regressor_config_sparse
+from tpot.config.classifier_sparse import classifier_config_sparse
+from tpot.config.classifier_nn import classifier_config_nn
+from tpot.config.classifier_cuml import classifier_config_cuml
+from tpot.config.regressor_cuml import regressor_config_cuml
 
-from .metrics import SCORERS
-from .gp_types import Output_Array
-from .gp_deap import (
+from tpot.metrics import SCORERS
+from tpot.gp_types import Output_Array
+from tpot.gp_deap import (
     eaMuPlusLambda,
     mutNodeReplacement,
     _wrapped_cross_val_score,
@@ -128,6 +132,7 @@ class TPOTBase(BaseEstimator):
         verbosity=0,
         disable_update_check=False,
         log_file=None,
+        operator_class_checker=None
     ):
         """Set up the genetic programming algorithm for pipeline optimization.
 
@@ -277,6 +282,8 @@ class TPOTBase(BaseEstimator):
             Flag indicating whether the TPOT version checker should be disabled.
         log_file: string, io.TextIOWrapper or io.StringIO, optional (defaul: sys.stdout)
             Save progress content to a file.
+        operator_class_checker: Callable[[Operator, object], string]
+            Read operator_class_checker parameter of TPOTOperatorClassFactory from the .operator_utils.py file.
 
         Returns
         -------
@@ -310,6 +317,7 @@ class TPOTBase(BaseEstimator):
         self.disable_update_check = disable_update_check
         self.random_state = random_state
         self.log_file = log_file
+        self.operator_class_checker = operator_class_checker
 
     def _setup_template(self, template):
         self.template = template
@@ -457,6 +465,9 @@ class TPOTBase(BaseEstimator):
                     # return both an Output_Array (and thus be the root of the tree),
                     # and return a np.ndarray so they can exist elsewhere in the tree.
                     self._pset.addPrimitive(operator, *p_types)
+
+                    # TODO Output array to Output array for Post-Processors
+
                 tree_p_types = ([step_in_type] + arg_types, step_in_type)
                 self._pset.addPrimitive(operator, *tree_p_types)
                 self._import_hash_and_add_terminals(operator, arg_types)
@@ -605,6 +616,7 @@ class TPOTBase(BaseEstimator):
                     BaseClass=Operator,
                     ArgBaseClass=ARGType,
                     verbose=self.verbosity,
+                    custom_checker=self.operator_class_checker
                 )
                 if op_class:
                     self.operators.append(op_class)

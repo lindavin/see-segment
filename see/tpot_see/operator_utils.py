@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-"""This file is part of the TPOT library.
+"""This file is part of the TPOT library. (This file has been 
+modified to work with the SEE library.)
 
 TPOT was primarily developed at the University of Pennsylvania by:
     - Randal S. Olson (rso@randalolson.com)
@@ -158,7 +159,7 @@ def ARGTypeClassFactory(classname, prange, BaseClass=ARGType):
 
 
 def TPOTOperatorClassFactory(
-    opsourse, opdict, BaseClass=Operator, ArgBaseClass=ARGType, verbose=0
+    opsourse, opdict, BaseClass=Operator, ArgBaseClass=ARGType, verbose=0, operator_class_checker=None
 ):
     """Dynamically create operator class.
 
@@ -179,7 +180,13 @@ def TPOTOperatorClassFactory(
     verbose: int, optional (default: 0)
         How much information TPOT communicates while it's running.
         0 = none, 1 = minimal, 2 = high, 3 = all.
-        if verbose > 2 then ImportError will rasie during initialization
+        if verbose > 2 then ImportError will raise during initialization
+    operator_class_checker: Callable[[class_profile: Operator, operator_class: object], string]
+        custom function to check if an operator can be the root of a pipeline.
+        operator_class is the class of the operator and class_profile is the corresponding
+        base class of the operator used in TPOT. May modify the Operator object and maps the 
+        class to one of "Classifier", "Regressor", "Selector", or "Transformer"; should raise ValueError
+        otherwise. This was added so that TPOT can work with SEE.
 
     Returns
     -------
@@ -198,22 +205,29 @@ def TPOTOperatorClassFactory(
         return None, None
     else:
         # define if the operator can be the root of a pipeline
-        if is_classifier(op_obj):
-            class_profile["root"] = True
-            optype = "Classifier"
-        elif is_regressor(op_obj):
-            class_profile["root"] = True
-            optype = "Regressor"
-        elif _is_selector(op_obj):
-            optype = "Selector"
-        elif _is_transformer(op_obj):
-            optype = "Transformer"
-        elif _is_resampler(op_obj):
-            optype = "Resampler"
+        if operator_class_checker is not None:
+            if(not (callable(operator_class_checker))):
+                raise ValueError(
+                    "operator_class_checker must be callable"
+                )
+            optype = operator_class_checker(class_profile, op_obj) # May need to raise error if not one of the main types
         else:
-            raise ValueError(
-                "optype must be one of: Classifier, Regressor, Selector, Transformer, or Resampler"
-            )
+            if is_classifier(op_obj):
+                class_profile["root"] = True
+                optype = "Classifier"
+            elif is_regressor(op_obj):
+                class_profile["root"] = True
+                optype = "Regressor"
+            elif _is_selector(op_obj):
+                optype = "Selector"
+            elif _is_transformer(op_obj):
+                optype = "Transformer"
+            elif _is_resampler(op_obj):
+                optype = "Resampler"
+            else:
+                raise ValueError(
+                    "optype must be one of: Classifier, Regressor, Selector, Transformer, or Resampler"
+                )
 
         @classmethod
         def op_type(cls):
