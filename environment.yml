@@ -17,3 +17,4 @@ dependencies:
     - deap
     - opencv-python
     - scoop
+    - tpot
