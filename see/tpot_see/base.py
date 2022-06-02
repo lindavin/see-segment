@@ -132,7 +132,6 @@ class TPOTBase(BaseEstimator):
         verbosity=0,
         disable_update_check=False,
         log_file=None,
-        operator_class_checker=None
     ):
         """Set up the genetic programming algorithm for pipeline optimization.
 
@@ -280,7 +279,7 @@ class TPOTBase(BaseEstimator):
             A setting of 2 or higher will add a progress bar during the optimization procedure.
         disable_update_check: bool, optional (default: False)
             Flag indicating whether the TPOT version checker should be disabled.
-        log_file: string, io.TextIOWrapper or io.StringIO, optional (defaul: sys.stdout)
+        log_file: string, io.TextIOWrapper or io.StringIO, optional (default: sys.stdout)
             Save progress content to a file.
         operator_class_checker: Callable[[Operator, object], string]
             Read operator_class_checker parameter of TPOTOperatorClassFactory from the .operator_utils.py file.
@@ -317,8 +316,7 @@ class TPOTBase(BaseEstimator):
         self.disable_update_check = disable_update_check
         self.random_state = random_state
         self.log_file = log_file
-        self.operator_class_checker = operator_class_checker
-
+            
     def _setup_template(self, template):
         self.template = template
         if self.template is None:
@@ -616,7 +614,8 @@ class TPOTBase(BaseEstimator):
                     BaseClass=Operator,
                     ArgBaseClass=ARGType,
                     verbose=self.verbosity,
-                    custom_checker=self.operator_class_checker
+                    # TODO Unsure how to do this in a more OOP way; using hasattr as a workaround to detect for this method
+                    operator_class_checker=self._operator_class_checker if hasattr(self, '_operator_class_checker') else None
                 )
                 if op_class:
                     self.operators.append(op_class)

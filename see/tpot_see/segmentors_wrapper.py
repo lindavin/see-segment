@@ -25,7 +25,7 @@ class TPOTSegmentorWrapper(segmentor):
         self.thisalgo = segmentor.algorithmspace[self.params['algorithm']](None)
         for key, value in self.param_args.items():
             # Set parameter values
-            self.thisalgo[key] = value
+            self.thisalgo.params[key] = value
         return self.thisalgo.evaluate(img)
     
     def fit(self, img_array, ground_truth):
