@@ -63,7 +63,9 @@ from update_checker import update_check
 from .tpot_version import __version__
 
 # from tpot.operator_utils import TPOTOperatorClassFactory, Operator, ARGType
-from .operator_utils import TPOTOperatorClassFactory, Operator, ARGType
+#from .operator_utils import TPOTOperatorClassFactory, Operator, ARGType
+from .operator_utils import Operator, ARGType
+from .functional_operator_utils import FunctionOperatorClassFactory as TPOTOperatorClassFactory
 
 from tpot.export_utils import (
     export_pipeline,
@@ -533,9 +535,16 @@ class TPOTBase(BaseEstimator):
                 exec("from {} import {}".format(key[4:], module_list))
             else:
                 exec("from {} import {}".format(key, module_list))
-
             for var in operator.import_hash[key]:
                 self.operators_context[var] = eval(var)
+                # use a conditional to generate the class and add it to the context
+                if(var.split('#')[-1] == 'auto_gen_for_funcs'):
+                    # detect the actual function and add the class
+                    func_name = operator.import_hash[key][0]
+                    func = self.operators_context[func_name]
+                    from .functional_operator_utils import FunctionToSklearnClass
+                    cls = FunctionToSklearnClass(func, self._operator_class_checker({}, func))
+                    self.operators_context[cls.__name__] = cls
 
     def _add_terminals(self, arg_types):
         for _type in arg_types:
